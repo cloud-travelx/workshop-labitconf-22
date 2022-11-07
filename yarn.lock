@@ -185,10 +185,10 @@
   resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@travelx/algob-ext@0.0.4-23":
-  version "0.0.4-23"
-  resolved "https://registry.npmjs.org/@travelx/algob-ext/-/algob-ext-0.0.4-23.tgz#213a704981f0c09f60df24478c689964ccc5e59e"
-  integrity sha512-JA3//uvdxEISYoyOW29uhDFMtGchESxXy4dLO5B7q9s9qpFRSIn60EgH8l5rL03plLeqpCyLBI9bVJytOnqGMA==
+"@travelx/algob-ext@0.0.4-24":
+  version "0.0.4-24"
+  resolved "https://registry.npmjs.org/@travelx/algob-ext/-/algob-ext-0.0.4-24.tgz#a338358aac335384a6feaf5dab48b9ae76021172"
+  integrity sha512-MAYNygWjisUOiCzLoponilkEb9xyMYWpkJippXCU5t8/6QWmqIHLgb6zW0R4Xz2wquFytmqM7v41+cp84USPRw==
   dependencies:
     "@algo-builder/algob" "^6.0.0"
     algosdk "^1.23.1"

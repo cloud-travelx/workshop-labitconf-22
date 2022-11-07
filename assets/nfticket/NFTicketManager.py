@@ -30,21 +30,20 @@ class NFTicketManager(bkr.Application):
     )
 
     @bkr.create
-    def create(self, payment_asset: abi.Asset, protocol: abi.Account, supplier: abi.Account) -> Expr:
+    def create(self, protocol: abi.Account, supplier: abi.Account):
         return Seq(
-            self.opt_in_payment_asset(payment_asset.asset_id()),
             self.initialize_application_state(),
-            self.protocol.set(protocol.address()),
-            self.supplier.set(supplier.address())
+            self.protocol.set(Txn.accounts[1]),
+            self.supplier.set(Txn.accounts[2])
         )
 
-    @bkr.internal(TealType.none)
-    def opt_in_payment_asset(self, asset):
+    @bkr.external(authorize=bkr.Authorize.only(protocol))
+    def set_up_asset(self, asset: abi.Asset):
         return Seq(
             InnerTxnBuilder.Begin(),
             InnerTxnBuilder.SetFields({
                 TxnField.type_enum: TxnType.AssetTransfer,
-                TxnField.xfer_asset: asset,
+                TxnField.xfer_asset: asset.asset_id(),
                 TxnField.asset_receiver: self.address,
                 TxnField.asset_amount: Int(0),
                 TxnField.fee: Int(0)
@@ -52,7 +51,7 @@ class NFTicketManager(bkr.Application):
             InnerTxnBuilder.Submit(),
         )
 
-    @bkr.external(authorize=bkr.Authorize.only(Global.creator_address()))
+    @bkr.external(authorize=bkr.Authorize.only(protocol))
     def set_up_fee(self, supplier_share: abi.Uint64, protocol: abi.Uint64):
         return Seq(
             self.supplier_share.set(supplier_share.get()),
@@ -157,13 +156,26 @@ class NFTicketManager(bkr.Application):
 
 if __name__ == '__main__':
     import sys
+    import json
+    import collections
+
     app = NFTicketManager()
 
     if len(sys.argv) > 1:
+        if sys.argv[1] == "--spec":
+            spec = app.application_spec()
+
+
+            def cost(declared) -> collections.Counter:
+                return collections.Counter(map(lambda e: e["type"], declared.values()))
+
+
+            print(cost(spec["schema"]["local"]["declared"]))
+            print(cost(spec["schema"]["global"]["declared"]))
+
+            sys.exit(0)
         if sys.argv[1] == "--abi":
-            import json
             with open(__file__.replace(".py", ".abi.json"), "w") as abi_fp:
                 json.dump(app.contract.dictify(), abi_fp, indent=2)
-            sys.exit(1)
 
     print(app.approval_program)

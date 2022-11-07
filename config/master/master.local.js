@@ -1,4 +1,4 @@
 module.exports = {
-    addr: "BHTC3QT2QBNNN7445E42TPD3NS3BYLZWMD4ZAT7LAREQWWPFMGLSWNC3CQ",
-    mnemonic: "left retreat jacket dove intact hand piano dynamic indicate science season print deliver bread ski mansion garment tuition escape genius core ivory cloth able diet"
+    addr: "GCT2BJ4GVJMIRMHBFEOOOXIJ7WXYG74QNFAV3T2KKYT2GKMSKIHVP7ILGI",
+    mnemonic: "episode frown save tide sleep crystal unit clutch forward wheat cactus chalk slice hover click race renew impact vendor frozen unique cart pistol absorb evidence"
 }

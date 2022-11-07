@@ -5,16 +5,24 @@
       "name": "create",
       "args": [
         {
-          "type": "asset",
-          "name": "payment_asset"
-        },
-        {
           "type": "account",
           "name": "protocol"
         },
         {
           "type": "account",
           "name": "supplier"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "set_up_asset",
+      "args": [
+        {
+          "type": "asset",
+          "name": "asset"
         }
       ],
       "returns": {
@@ -105,5 +113,6 @@
         "type": "void"
       }
     }
-  ]
+  ],
+  "networks": {}
 }

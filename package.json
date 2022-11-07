@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@travelx/algob-ext": "0.0.4-23",
+    "@travelx/algob-ext": "0.0.4-24",
     "@algo-builder/algob": "^6.0.0",
     "@algo-builder/runtime": "^6.0.0",
     "@algo-builder/web": "^6.0.0",

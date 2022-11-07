@@ -173,7 +173,7 @@
   resolved "https://registry.npmjs.org/@randlabs/communication-bridge/-/communication-bridge-1.0.1.tgz#d1ecfc29157afcbb0ca2d73122d67905eecb5bf3"
   integrity sha512-CzS0U8IFfXNK7QaJFE4pjbxDGfPjbXBEsEaCn9FN15F+ouSAEUQkva3Gl66hrkBZOGexKFEWMwUHIDKpZ2hfVg==
 
-"@randlabs/myalgo-connect@^1.4.0":
+"@randlabs/myalgo-connect@^1.1.0", "@randlabs/myalgo-connect@^1.4.0":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@randlabs/myalgo-connect/-/myalgo-connect-1.4.0.tgz#1446d527978b7b5666562a4e921a51262a29cddd"
   integrity sha512-sAeYbnx4HOLVXNaTFpoI2K0BmdC4rqzKqb4wuUbk51ay1oQ0jnfOgwS1Ms8uZchoaVNLVlMPK9nso1J/CAOFnw==
@@ -185,10 +185,48 @@
   resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@travelx/algob-ext@0.0.4-24":
-  version "0.0.4-24"
-  resolved "https://registry.npmjs.org/@travelx/algob-ext/-/algob-ext-0.0.4-24.tgz#a338358aac335384a6feaf5dab48b9ae76021172"
-  integrity sha512-MAYNygWjisUOiCzLoponilkEb9xyMYWpkJippXCU5t8/6QWmqIHLgb6zW0R4Xz2wquFytmqM7v41+cp84USPRw==
+"@stablelib/binary@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/binary/-/binary-1.0.1.tgz#c5900b94368baf00f811da5bdb1610963dfddf7f"
+  integrity sha512-ClJWvmL6UBM/wjkvv/7m5VP3GMr9t0osr4yVgLZsLCOz4hGN9gIAFEqnJ0TsSMAN+n840nf2cHZnA5/KFqHC7Q==
+  dependencies:
+    "@stablelib/int" "^1.0.1"
+
+"@stablelib/hash@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/hash/-/hash-1.0.1.tgz#3c944403ff2239fad8ebb9015e33e98444058bc5"
+  integrity sha512-eTPJc/stDkdtOcrNMZ6mcMK1e6yBbqRBaNW55XA1jU8w/7QdnCF0CmMmOD1m7VSkBR44PWrMHU2l6r8YEQHMgg==
+
+"@stablelib/int@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/int/-/int-1.0.1.tgz#75928cc25d59d73d75ae361f02128588c15fd008"
+  integrity sha512-byr69X/sDtDiIjIV6m4roLVWnNNlRGzsvxw+agj8CIEazqWGOQp2dTYgQhtyVXV9wpO6WyXRQUzLV/JRNumT2w==
+
+"@stablelib/sha512@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/sha512/-/sha512-1.0.1.tgz#6da700c901c2c0ceacbd3ae122a38ac57c72145f"
+  integrity sha512-13gl/iawHV9zvDKciLo1fQ8Bgn2Pvf7OV6amaRVKiq3pjQ3UmEpXxWiAfV8tYjUpeZroBxtyrwtdooQT/i3hzw==
+  dependencies:
+    "@stablelib/binary" "^1.0.1"
+    "@stablelib/hash" "^1.0.1"
+    "@stablelib/wipe" "^1.0.1"
+
+"@stablelib/sha512_256@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/sha512_256/-/sha512_256-1.0.1.tgz#a3308d0151887dbed132a1d1b197c2ed9f87d4cd"
+  integrity sha512-qha6LtpQVXyU4swKhvhNuFnxv+1yOtEtYkj1ecLxn6gA/SUyZhkLoGtelmWyAI3xYHBfgMbGYKLrHA1VtO7qXA==
+  dependencies:
+    "@stablelib/sha512" "^1.0.1"
+
+"@stablelib/wipe@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@stablelib/wipe/-/wipe-1.0.1.tgz#d21401f1d59ade56a62e139462a97f104ed19a36"
+  integrity sha512-WfqfX/eXGiAd3RJe4VU2snh/ZPwtSjLG4ynQ/vYzvghTh7dHFcI1wl+nrkWG6lGhukOxOsUHfv8dUXr58D0ayg==
+
+"@travelx/algob-ext@0.0.5-2":
+  version "0.0.5-2"
+  resolved "https://registry.npmjs.org/@travelx/algob-ext/-/algob-ext-0.0.5-2.tgz#6459d8abb3f157952f02fad42064e67926ddad01"
+  integrity sha512-QWHxE5yx7l7NX9rvxyUqh32rHkCxhe0id1W2gzb27RmFSedxiW20dAhCLBXX5VUadKoVEiti/ycboboBo/+YRw==
   dependencies:
     "@algo-builder/algob" "^6.0.0"
     algosdk "^1.23.1"
@@ -273,6 +311,11 @@
   version "7.3.13"
   resolved "https://registry.npmjs.org/@types/semver/-/semver-7.3.13.tgz#da4bfd73f49bd541d28920ab0e2bf0ee80f71c91"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
+
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.npmjs.org/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
 "@typescript-eslint/eslint-plugin@^5.42.0":
   version "5.42.0"
@@ -440,6 +483,18 @@
   resolved "https://registry.npmjs.org/@walletconnect/mobile-registry/-/mobile-registry-1.4.0.tgz#502cf8ab87330841d794819081e748ebdef7aee5"
   integrity sha512-ZtKRio4uCZ1JUF7LIdecmZt7FOLnX72RPSY7aUVu7mj7CSfxDwUn6gBuK6WGtH+NZCldBqDl5DenI5fFSvkKYw==
 
+"@walletconnect/qrcode-modal@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.npmjs.org/@walletconnect/qrcode-modal/-/qrcode-modal-1.8.0.tgz#ddd6f5c9b7ee52c16adf9aacec2a3eac4994caea"
+  integrity sha512-BueaFefaAi8mawE45eUtztg3ZFbsAH4DDXh1UNwdUlsvFMjqcYzLUG0xZvDd6z2eOpbgDg2N3bl6gF0KONj1dg==
+  dependencies:
+    "@walletconnect/browser-utils" "^1.8.0"
+    "@walletconnect/mobile-registry" "^1.4.0"
+    "@walletconnect/types" "^1.8.0"
+    copy-to-clipboard "^3.3.1"
+    preact "10.4.1"
+    qrcode "1.4.4"
+
 "@walletconnect/randombytes@^1.0.2":
   version "1.0.2"
   resolved "https://registry.npmjs.org/@walletconnect/randombytes/-/randombytes-1.0.2.tgz#95c644251a15e6675f58fbffc9513a01486da49c"
@@ -528,7 +583,7 @@ algo-msgpack-with-bigint@^2.1.1:
   resolved "https://registry.npmjs.org/algo-msgpack-with-bigint/-/algo-msgpack-with-bigint-2.1.1.tgz#38bb717220525b3ff42232eefdcd9efb9ad405d6"
   integrity sha512-F1tGh056XczEaEAqu7s+hlZUDWwOBT70Eq0lfMpBP2YguSQVyxRbprLq5rELXKQOyOaixTWYhMeMQMzP0U5FoQ==
 
-algorand-walletconnect-qrcode-modal@^1.8.0:
+algorand-walletconnect-qrcode-modal@^1.6.1, algorand-walletconnect-qrcode-modal@^1.8.0:
   version "1.8.0"
   resolved "https://registry.npmjs.org/algorand-walletconnect-qrcode-modal/-/algorand-walletconnect-qrcode-modal-1.8.0.tgz#fa539ca3168a5423fd355e1fe8073dd0bca1b6b1"
   integrity sha512-NQgYnG0yNnyxMfiJxQtQXf3JaqcuE2dfCklugK/kWCse0JYWVAvwmAKfFZ0j597N0rU+YQTWsW+TpHroAnVfnw==
@@ -540,7 +595,7 @@ algorand-walletconnect-qrcode-modal@^1.8.0:
     preact "10.4.1"
     qrcode "1.4.4"
 
-algosdk@^1.22.0, algosdk@^1.23.1:
+algosdk@^1.21.0, algosdk@^1.22.0, algosdk@^1.23.1:
   version "1.23.1"
   resolved "https://registry.npmjs.org/algosdk/-/algosdk-1.23.1.tgz#c8fbf1f7af42fc722c9b7e9fc9c4a1015f1ede82"
   integrity sha512-7fKyTd2V6rsac3ADm6N5jJV80cCw+EIBzXVLzfPvKqranjOZtq7xIqwpEkZgBkZ/TJ5wxwTDJVPyswXChv+QPg==
@@ -695,6 +750,21 @@ base64-js@^1.3.1:
   resolved "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
+beaker-ts@^0.0.55:
+  version "0.0.55"
+  resolved "https://registry.npmjs.org/beaker-ts/-/beaker-ts-0.0.55.tgz#f7b9b70bff9a8d4b9a9e08c81efb53e2e98d4ee2"
+  integrity sha512-n1O9sHX5WU5bf6geTPn7xvTnZn5qYGG0RoDZRzKABO+Iy62GvmNYB+U5JpWvx/ji0FPtsn0mGZJnYmofRnxR4g==
+  dependencies:
+    "@json-rpc-tools/utils" "^1.7.6"
+    "@randlabs/myalgo-connect" "^1.1.0"
+    "@walletconnect/client" "^1.8.0"
+    "@walletconnect/qrcode-modal" "^1.8.0"
+    algorand-walletconnect-qrcode-modal "^1.6.1"
+    algosdk "^1.21.0"
+    buffer "^6.0.3"
+    commander "^9.4.0"
+    typescript "^4.7.4"
+
 bignumber.js@^9.0.0:
   version "9.1.0"
   resolved "https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.1.0.tgz#8d340146107fe3a6cb8d40699643c302e8773b62"
@@ -783,7 +853,7 @@ buffer-from@^1.0.0, buffer-from@^1.1.0, buffer-from@^1.1.1:
   resolved "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
-buffer@6.0.3, buffer@^6.0.2:
+buffer@6.0.3, buffer@^6.0.2, buffer@^6.0.3:
   version "6.0.3"
   resolved "https://registry.npmjs.org/buffer/-/buffer-6.0.3.tgz#2ace578459cc8fbe2a70aaa8f52ee63b6a74c6c6"
   integrity sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==
@@ -969,6 +1039,11 @@ commander@^2.8.1:
   version "2.20.3"
   resolved "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
+commander@^9.4.0:
+  version "9.4.1"
+  resolved "https://registry.npmjs.org/commander/-/commander-9.4.1.tgz#d1dd8f2ce6faf93147295c0df13c7c21141cfbdd"
+  integrity sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==
 
 common-tags@^1.4.0:
   version "1.8.2"
@@ -3567,7 +3642,7 @@ typedarray-to-buffer@3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.5.4, typescript@^4.8.4:
+typescript@^4.5.4, typescript@^4.7.4, typescript@^4.8.4:
   version "4.8.4"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
@@ -3618,6 +3693,11 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"

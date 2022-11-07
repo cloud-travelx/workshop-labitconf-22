@@ -25,6 +25,7 @@ module.exports = {
   ],
   ignorePatterns: ['algob.config.js', 'config/**/*.js', '.eslintrc.js'],
   rules: {
+    'sonarjs/no-nested-template-literals': 'off',
     'ter-indent': 'off',
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 'off',

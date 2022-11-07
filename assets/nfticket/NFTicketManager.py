@@ -58,13 +58,9 @@ class NFTicketManager(bkr.Application):
             self.protocol_fee.set(protocol.get())
         )
 
-    @bkr.external
+    @bkr.external(authorize=bkr.Authorize.only(supplier))
     def mint(self, name: abi.String, meta_url: abi.String, meta_hash: abi.String, *, output: abi.Uint64):
-        # Create asset (set this contract as clawback)
         return Seq(
-            # Check only Supplier can Mint
-            Assert(Txn.sender() == self.supplier.get()),
-
             InnerTxnBuilder.Begin(),
             InnerTxnBuilder.SetFields({
                 TxnField.type_enum: TxnType.AssetConfig,
@@ -75,7 +71,7 @@ class NFTicketManager(bkr.Application):
                 TxnField.config_asset_url: meta_url.get(),
                 TxnField.config_asset_metadata_hash: meta_hash.get(),
                 TxnField.config_asset_default_frozen: Int(1),
-                TxnField.config_asset_reserve: Txn.sender(),
+                TxnField.config_asset_reserve: Global.current_application_address(),
                 TxnField.config_asset_manager: Global.current_application_address(),
                 TxnField.config_asset_clawback: Global.current_application_address(),
                 TxnField.config_asset_freeze: Global.current_application_address(),
@@ -87,12 +83,12 @@ class NFTicketManager(bkr.Application):
         )
 
     @bkr.internal(TealType.none)
-    def move_asset(self, asset: abi.Asset, owner, to):
+    def move_asset(self, asset, owner, to):
         return Seq(
             InnerTxnBuilder.Begin(),
             InnerTxnBuilder.SetFields({
                 TxnField.type_enum: TxnType.AssetTransfer,
-                TxnField.xfer_asset: asset.asset_id(),
+                TxnField.xfer_asset: asset,
                 TxnField.asset_sender: owner,
                 TxnField.asset_receiver: to,
                 TxnField.asset_amount: Int(1),
@@ -116,6 +112,10 @@ class NFTicketManager(bkr.Application):
         )
 
     @bkr.external(authorize=bkr.Authorize.only(supplier))
+    def redeem(self, asset: abi.Asset):
+        return self.move_asset(asset.asset_id(), self.address, Txn.sender())
+
+    @bkr.external(authorize=bkr.Authorize.only(supplier))
     def withdraw(self, asset: abi.Asset, amount: abi.Uint64, to: abi.Account):
         return self.pay_share(asset.asset_id(), to.address(), amount.get())
 
@@ -125,32 +125,34 @@ class NFTicketManager(bkr.Application):
              nfticket: abi.Asset,
              buyer: abi.Account,
              protocol: abi.Account,
+             pay_asset: abi.Asset,
              payment: abi.AssetTransferTransaction):
         payment = payment.get()
         return Seq(
             # Payment to contract
             #  (implicit) Payment asset
             Assert(payment.asset_receiver() == self.address),
+            Assert(payment.xfer_asset() == pay_asset.asset_id()),
 
             # Payment amount is sell price
             Assert(payment.asset_amount() >= price.get()),
 
             # Protocol Fee
             Assert(self.protocol.get() == protocol.address()),
-            (protocol_fee := abi.Uint64()).set(price.get() * (self.protocol_fee.get() / Int(1000))),
+            # (protocol_fee := ScratchVar(TealType.uint64)).store(price.get() * (self.protocol_fee.get() / Int(1000))),
+            (protocol_fee := abi.Uint64()).set(price.get() * self.protocol_fee.get() / Int(1000)),
             # Pay to Protocol
             self.pay_share(payment.xfer_asset(), protocol.address(), protocol_fee.get()),
 
             # Seller profit
-            (seller_profit := abi.Uint64()).set(
-                (price.get() - protocol_fee.get()) * (Int(1) - self.supplier_share.get() / Int(1000))
-            ),
+            (sell_worth := abi.Uint64()).set(price.get() - protocol_fee.get()),
+            (supplier_share := abi.Uint64()).set(sell_worth.get() * self.supplier_share.get() / Int(1000)),
             # Pay to seller
-            self.pay_share(payment.xfer_asset(), Txn.sender(), seller_profit.get()),
+            self.pay_share(payment.xfer_asset(), Txn.sender(), price.get() - supplier_share.get()),
 
             # Move asset
             #  (implicit check) Seller is owner
-            self.move_asset(nfticket, Txn.sender(), buyer.address())
+            self.move_asset(nfticket.asset_id(), Txn.sender(), buyer.address())
         )
 
 
@@ -158,10 +160,14 @@ if __name__ == '__main__':
     import sys
     import json
     import collections
+    from os import path
 
     app = NFTicketManager()
 
     if len(sys.argv) > 1:
+        if sys.argv[1] == "--artifacts":
+            app.dump(f"{path.dirname(__file__)}/artifacts")
+            exit(0)
         if sys.argv[1] == "--spec":
             spec = app.application_spec()
 

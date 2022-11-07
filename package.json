@@ -4,11 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@travelx/algob-ext": "0.0.4-24",
     "@algo-builder/algob": "^6.0.0",
     "@algo-builder/runtime": "^6.0.0",
     "@algo-builder/web": "^6.0.0",
-    "algosdk": "^1.23.1"
+    "@stablelib/sha512_256": "^1.0.1",
+    "@travelx/algob-ext": "0.0.5-2",
+    "@types/uuid": "^8.3.4",
+    "algosdk": "^1.23.1",
+    "beaker-ts": "^0.0.55",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "algob": "algob",

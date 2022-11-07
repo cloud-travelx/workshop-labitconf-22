@@ -66,6 +66,18 @@
       }
     },
     {
+      "name": "redeem",
+      "args": [
+        {
+          "type": "asset",
+          "name": "asset"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
       "name": "withdraw",
       "args": [
         {
@@ -103,6 +115,10 @@
         {
           "type": "account",
           "name": "protocol"
+        },
+        {
+          "type": "asset",
+          "name": "pay_asset"
         },
         {
           "type": "axfer",

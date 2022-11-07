@@ -1,0 +1,50 @@
+{
+  "name": "tx-algo-builder-poc",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@travelx/algob-ext": "0.0.4-23",
+    "@algo-builder/algob": "^6.0.0",
+    "@algo-builder/runtime": "^6.0.0",
+    "@algo-builder/web": "^6.0.0",
+    "algosdk": "^1.23.1"
+  },
+  "scripts": {
+    "algob": "algob",
+    "algob:fix": "chmod +x ./.tools/algob.fix.sh && ./.tools/algob.fix.sh",
+    "algob:run": "algob run",
+    "sandbox:account:master": "sandbox goal account export -a $(sandbox goal account list | grep \"[online]\" | head -n 1 | awk 'BEGIN {FS=\"\\t\"}; {print $2}') | sed -nr 's/Exported key for account ([A-Z0-9]{5,}): \\\"([a-z ]+)\\\"/module.exports = {\\n    addr: \\\"\\1\\\",\\n    mnemonic: \\\"\\2\\\"\\n}/p'",
+    "sandbox:account:master:config:env": "yarn run --silent sandbox:account:master > config/master/master.${ENV:-local}.js",
+    "help": "yarn run algob help",
+    "lint": "eslint --ext .js,.ts scripts",
+    "lint:fix": "eslint --fix --ext .js,.ts scripts",
+    "test": "mocha",
+    "build:docs": "echo ok",
+    "build:clean": "rm -rf build/",
+    "build": "tsc --build . && cp -R assets/ build/assets/",
+    "build:watch": "tsc -w -p . && cp -R assets/ build/assets/",
+    "bump": "yarn version",
+    "prepare": "yarn algob:fix"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.26.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
+    "mocha": "^10.1.0",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}

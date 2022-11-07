@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "outDir": "./build",
+    "rootDir": ".",
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/webpack",
+    "algob.config.js",
+    "node_modules/**/*"
+  ],
+  "include": [
+    "./test/**/*",
+    "./scripts/**/*",
+  ]
+}

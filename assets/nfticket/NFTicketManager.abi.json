@@ -1,0 +1,109 @@
+{
+  "name": "NFTicketManager",
+  "methods": [
+    {
+      "name": "create",
+      "args": [
+        {
+          "type": "asset",
+          "name": "payment_asset"
+        },
+        {
+          "type": "account",
+          "name": "protocol"
+        },
+        {
+          "type": "account",
+          "name": "supplier"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "set_up_fee",
+      "args": [
+        {
+          "type": "uint64",
+          "name": "supplier_share"
+        },
+        {
+          "type": "uint64",
+          "name": "protocol"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "mint",
+      "args": [
+        {
+          "type": "string",
+          "name": "name"
+        },
+        {
+          "type": "string",
+          "name": "meta_url"
+        },
+        {
+          "type": "string",
+          "name": "meta_hash"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      }
+    },
+    {
+      "name": "withdraw",
+      "args": [
+        {
+          "type": "asset",
+          "name": "asset"
+        },
+        {
+          "type": "uint64",
+          "name": "amount"
+        },
+        {
+          "type": "account",
+          "name": "to"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "sell",
+      "args": [
+        {
+          "type": "uint64",
+          "name": "price"
+        },
+        {
+          "type": "asset",
+          "name": "nfticket"
+        },
+        {
+          "type": "account",
+          "name": "buyer"
+        },
+        {
+          "type": "account",
+          "name": "protocol"
+        },
+        {
+          "type": "axfer",
+          "name": "payment"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    }
+  ]
+}

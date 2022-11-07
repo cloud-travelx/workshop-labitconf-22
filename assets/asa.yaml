@@ -1,0 +1,10 @@
+usdc:
+    total: 18446744073709
+    decimals: 6
+    defaultFrozen: false
+    unitName: "USDC"
+    assetName: "USDC Coin"
+    url: "https://www.centre.io/usdc"
+    # User may get "signature validation failed" from node if shorter hash is used.
+    metadataHash: "12312442142141241244444411111133"
+    # reserve: "WWYNX3TKQYVEREVSW6QQP3SXSFOCE3SKUSEIVJ7YAGUPEACNI5UGI4DZCE"

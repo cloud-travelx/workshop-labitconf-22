@@ -17,7 +17,7 @@ The project contains only one contract: `NFTicketManager` which has 6 methods:
 6. `sell(price,nfticket,buyer,payment)`: Main method of the contract. Allow to sell nfticket from owner to buyer. Need a transaction (in same [group](https://developer.algorand.org/docs/get-details/atomic_transfers/#group-transactions)) which paid (`axfer` to contract) the defined amount of the seller. If the contract validate parameters, the nfticket will be moved from owner to buyer. The specified protocol_fee will be transfer to protocol, supplier_fee will stay in the contract and the rest will be transferred to seller.
 
 
-$$ seller_{profit} = {price -  (\%fee_{protocol} + \%fee_{supplier})} $$
+$$ seller_{profit} = price -  (\%fee_{protocol} + \%fee_{supplier}) $$
 
 ### Accounts
 - **Supplier**: Simulate the airline which is allowed (by protocol) to _mint_ inventory as NFT

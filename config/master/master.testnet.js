@@ -1,4 +1,4 @@
 module.exports = {
-    addr: "ISHPRG6JSEWQYGOVH2SAL4IHKB7BUBZR63XMIBSGTA3S3US3K2YWFQJMVM",
-    mnemonic: "cream social trouble toss slide kick auction attend home hip village throw border give bachelor recipe shed tag pave cupboard enemy minute fantasy abstract dress"
+    addr: "GX4TDCZ46WTCKPJ7DEYSYNWK7PXGZNGQJDOB5I25DUYIHRJOUI5HTPUMO4",
+    mnemonic: "process novel fall chef tag crowd useful baby flag shoot gasp high vessel pause keep beauty snow switch among half outdoor gym sample able boy"
 }
